@@ -27,7 +27,8 @@ Absolutely!  There is much to be done.  If you would like to assist, simply cont
 The below are currently considered the prerequisites and this software is only tested within the Visual Studio (R) 2013 IDE with Word 2013.
 
 * .NET Framework v4.5
-* OpenLawOffice
+* OpenLawOffice installed
+* OpenLawOffice.Common - the solution will require this library available as part of https://github.com/NodineLegal/OpenLawOffice
 
 ### Step 2 - Run it
 Launch the project and run it.
