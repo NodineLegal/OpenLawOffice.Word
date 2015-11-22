@@ -15,9 +15,23 @@ namespace OpenLawOffice.Word
     public partial class ThisAddIn
     {
         private AddInUtilities _utilities;
+        private Common.Models.Matters.Matter _activeMatter;
 
         public Security Security { get; set; }
         public Settings Settings { get; set; }
+        public Common.Models.Matters.Matter ActiveMatter 
+        {
+            get { return _activeMatter; }
+            set
+            {
+                Common.Models.Matters.Matter old = _activeMatter;
+                _activeMatter = value;
+                ActiveMatterChanged(old, _activeMatter);
+            }
+        }
+
+        public delegate void PropertyChangedDelegate(object oldValue, object newValue);
+        public event PropertyChangedDelegate ActiveMatterChanged;
 
         public bool CanLog
         {
@@ -27,16 +41,11 @@ namespace OpenLawOffice.Word
                 return false;
             }
         }
-
-        public TaskWindowManager TaskWindowManager;
-
+        
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
             this.Settings = new Word.Settings();
             this.Security = new Security();
-            this.TaskWindowManager = new TaskWindowManager(CustomTaskPanes);
-
-            this.TaskWindowManager.HideAll();
         }
 
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)

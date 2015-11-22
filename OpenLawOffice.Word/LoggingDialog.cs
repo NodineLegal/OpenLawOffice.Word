@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,21 +11,24 @@ using NLog;
 
 namespace OpenLawOffice.Word
 {
-    public partial class LoggingControl : UserControl
+    public partial class LoggingDialog : Form
     {
-        public LoggingControl()
+        public LoggingDialog()
         {
             InitializeComponent();
-
             EnableLogging.Checked = Globals.ThisAddIn.Settings.LoggingEnabled;
             LogPath.Text = Globals.ThisAddIn.Settings.LogPath;
-            LogLevel.SelectedText = Globals.ThisAddIn.Settings.LogLevel.Name;
+
+            for (int i = 0; i < LogLevel.Items.Count; i++)
+            {
+                if ((string)LogLevel.Items[i] == Globals.ThisAddIn.Settings.LogLevel.Name)
+                    LogLevel.SelectedIndex = i;
+            }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Cancel_Click(object sender, EventArgs e)
         {
-            openFileDialog1.ShowDialog();
-            LogPath.Text = openFileDialog1.FileName;
+            Close();
         }
 
         private void Save_Click(object sender, EventArgs e)
@@ -39,16 +42,13 @@ namespace OpenLawOffice.Word
             if (Globals.ThisAddIn.CanLog)
                 LogManager.GetCurrentClassLogger().Debug("Logging started at " + Globals.ThisAddIn.Settings.LogPath);
 
-            Globals.ThisAddIn.TaskWindowManager.Hide("Logging");
+            Close();
         }
 
-        private void Cancel_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            EnableLogging.Checked = Globals.ThisAddIn.Settings.LoggingEnabled;
-            LogPath.Text = Globals.ThisAddIn.Settings.LogPath;
-            LogLevel.Text = null;
-            LogLevel.SelectedText = Globals.ThisAddIn.Settings.LogLevel.Name;
-            Globals.ThisAddIn.TaskWindowManager.Hide("Logging");
+            openFileDialog1.ShowDialog();
+            LogPath.Text = openFileDialog1.FileName;
         }
     }
 }

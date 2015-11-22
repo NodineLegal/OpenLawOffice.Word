@@ -191,11 +191,11 @@
     <Compile Include="CommManager.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="FileDownloadClient.cs" />
-    <Compile Include="FormSelectorControl.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="FormSelectorWindow.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormSelectorControl.Designer.cs">
-      <DependentUpon>FormSelectorControl.cs</DependentUpon>
+    <Compile Include="FormSelectorWindow.Designer.cs">
+      <DependentUpon>FormSelectorWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="IAddInUtilities.cs" />
     <Compile Include="JsonWebClient.cs" />
@@ -205,44 +205,32 @@
     <Compile Include="KeyInputBox.Designer.cs">
       <DependentUpon>KeyInputBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoadingPanelControl.cs">
-      <SubType>Component</SubType>
+    <Compile Include="LoggingDialog.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoggingControl.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="LoggingDialog.Designer.cs">
+      <DependentUpon>LoggingDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoggingControl.Designer.cs">
-      <DependentUpon>LoggingControl.cs</DependentUpon>
+    <Compile Include="LoginDialog.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="LoginControl.Designer.cs">
-      <DependentUpon>LoginControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MatterSelectorControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="MatterSelectorControl.Designer.cs">
-      <DependentUpon>MatterSelectorControl.cs</DependentUpon>
+    <Compile Include="LoginDialog.Designer.cs">
+      <DependentUpon>LoginDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <EmbeddedResource Include="FormSelectorControl.resx">
-      <DependentUpon>FormSelectorControl.cs</DependentUpon>
+    <EmbeddedResource Include="FormSelectorWindow.resx">
+      <DependentUpon>FormSelectorWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KeyInputBox.resx">
       <DependentUpon>KeyInputBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoggingControl.resx">
-      <DependentUpon>LoggingControl.cs</DependentUpon>
+    <EmbeddedResource Include="LoggingDialog.resx">
+      <DependentUpon>LoggingDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginControl.resx">
-      <DependentUpon>LoginControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MatterSelectorControl.resx">
-      <DependentUpon>MatterSelectorControl.cs</DependentUpon>
+    <EmbeddedResource Include="LoginDialog.resx">
+      <DependentUpon>LoginDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -275,7 +263,6 @@
     </Compile>
     <Compile Include="Security.cs" />
     <Compile Include="Settings.cs" />
-    <Compile Include="TaskWindowManager.cs" />
     <Compile Include="ThisAddIn.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -325,7 +312,7 @@
       <FlavorProperties GUID="{BAA0C2D2-18E2-41B9-852F-F413020CAA33}">
         <ProjectProperties HostName="Word" HostPackage="{29A7B9D7-A7F1-4328-8EF0-6B2D1A56B2C1}" OfficeVersion="15.0" VstxVersion="4.0" ApplicationType="Word" Language="cs" TemplatesPath="" DebugInfoExeName="#Software\Microsoft\Office\15.0\Word\InstallRoot\Path#WINWORD.EXE" DebugInfoCommandLine="/x" AddItemTemplatesGuid="{51063C3A-E220-4D12-8922-BDA915ACD783}" />
         <Host Name="Word" GeneratedCodeNamespace="OpenLawOffice.Word" PublishedHash="69C324AB27932AA2FBF2B7EA72250886FF164DE6" IconIndex="0">
-          <HostItem Name="ThisAddIn" Code="ThisAddIn.cs" CanonicalName="AddIn" CanActivate="false" IconIndex="1" Blueprint="ThisAddIn.Designer.xml" GeneratedCode="ThisAddIn.Designer.cs" PublishedHash="DD1D98309236C26A57933E18E0F77865309E2EBD" />
+          <HostItem Name="ThisAddIn" Code="ThisAddIn.cs" CanonicalName="AddIn" PublishedHash="DD1D98309236C26A57933E18E0F77865309E2EBD" CanActivate="false" IconIndex="1" Blueprint="ThisAddIn.Designer.xml" GeneratedCode="ThisAddIn.Designer.cs" />
         </Host>
       </FlavorProperties>
     </VisualStudio>
